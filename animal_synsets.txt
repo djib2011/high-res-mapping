@@ -1,0 +1,398 @@
+n01440764 tench, Tinca tinca
+n01443537 goldfish, Carassius auratus
+n01484850 great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias
+n01491361 tiger shark, Galeocerdo cuvieri
+n01494475 hammerhead, hammerhead shark
+n01496331 electric ray, crampfish, numbfish, torpedo
+n01498041 stingray
+n01514668 cock
+n01514859 hen
+n01518878 ostrich, Struthio camelus
+n01530575 brambling, Fringilla montifringilla
+n01531178 goldfinch, Carduelis carduelis
+n01532829 house finch, linnet, Carpodacus mexicanus
+n01534433 junco, snowbird
+n01537544 indigo bunting, indigo finch, indigo bird, Passerina cyanea
+n01558993 robin, American robin, Turdus migratorius
+n01560419 bulbul
+n01580077 jay
+n01582220 magpie
+n01592084 chickadee
+n01601694 water ouzel, dipper
+n01608432 kite
+n01614925 bald eagle, American eagle, Haliaeetus leucocephalus
+n01616318 vulture
+n01622779 great grey owl, great gray owl, Strix nebulosa
+n01629819 European fire salamander, Salamandra salamandra
+n01630670 common newt, Triturus vulgaris
+n01631663 eft
+n01632458 spotted salamander, Ambystoma maculatum
+n01632777 axolotl, mud puppy, Ambystoma mexicanum
+n01641577 bullfrog, Rana catesbeiana
+n01644373 tree frog, tree-frog
+n01644900 tailed frog, bell toad, ribbed toad, tailed toad, Ascaphus trui
+n01664065 loggerhead, loggerhead turtle, Caretta caretta
+n01665541 leatherback turtle, leatherback, leathery turtle, Dermochelys coriacea
+n01667114 mud turtle
+n01667778 terrapin
+n01669191 box turtle, box tortoise
+n01675722 banded gecko
+n01677366 common iguana, iguana, Iguana iguana
+n01682714 American chameleon, anole, Anolis carolinensis
+n01685808 whiptail, whiptail lizard
+n01687978 agama
+n01688243 frilled lizard, Chlamydosaurus kingi
+n01689811 alligator lizard
+n01692333 Gila monster, Heloderma suspectum
+n01693334 green lizard, Lacerta viridis
+n01694178 African chameleon, Chamaeleo chamaeleon
+n01695060 Komodo dragon, Komodo lizard, dragon lizard, giant lizard, Varanus komodoensis
+n01697457 African crocodile, Nile crocodile, Crocodylus niloticus
+n01698640 American alligator, Alligator mississipiensis
+n01704323 triceratops
+n01728572 thunder snake, worm snake, Carphophis amoenus
+n01728920 ringneck snake, ring-necked snake, ring snake
+n01729322 hognose snake, puff adder, sand viper
+n01729977 green snake, grass snake
+n01734418 king snake, kingsnake
+n01735189 garter snake, grass snake
+n01737021 water snake
+n01739381 vine snake
+n01740131 night snake, Hypsiglena torquata
+n01742172 boa constrictor, Constrictor constrictor
+n01744401 rock python, rock snake, Python sebae
+n01748264 Indian cobra, Naja naja
+n01749939 green mamba
+n01751748 sea snake
+n01753488 horned viper, cerastes, sand viper, horned asp, Cerastes cornutus
+n01755581 diamondback, diamondback rattlesnake, Crotalus adamanteus
+n01756291 sidewinder, horned rattlesnake, Crotalus cerastes
+n01768244 trilobite
+n01770081 harvestman, daddy longlegs, Phalangium opilio
+n01770393 scorpion
+n01773157 black and gold garden spider, Argiope aurantia
+n01773549 barn spider, Araneus cavaticus
+n01773797 garden spider, Aranea diademata
+n01774384 black widow, Latrodectus mactans
+n01774750 tarantula
+n01775062 wolf spider, hunting spider
+n01776313 tick
+n01784675 centipede
+n01795545 black grouse
+n01796340 ptarmigan
+n01797886 ruffed grouse, partridge, Bonasa umbellus
+n01798484 prairie chicken, prairie grouse, prairie fowl
+n01806143 peacock
+n01806567 quail
+n01807496 partridge
+n01817953 African grey, African gray, Psittacus erithacus
+n01818515 macaw
+n01819313 sulphur-crested cockatoo, Kakatoe galerita, Cacatua galerita
+n01820546 lorikeet
+n01824575 coucal
+n01828970 bee eater
+n01829413 hornbill
+n01833805 hummingbird
+n01843065 jacamar
+n01843383 toucan
+n01847000 drake
+n01855032 red-breasted merganser, Mergus serrator
+n01855672 goose
+n01860187 black swan, Cygnus atratus
+n01871265 tusker
+n01872401 echidna, spiny anteater, anteater
+n01873310 platypus, duckbill, duckbilled platypus, duck-billed platypus, Ornithorhynchus anatinus
+n01877812 wallaby, brush kangaroo
+n01882714 koala, koala bear, kangaroo bear, native bear, Phascolarctos cinereus
+n01883070 wombat
+n01910747 jellyfish
+n01914609 sea anemone, anemone
+n01917289 brain coral
+n01924916 flatworm, platyhelminth
+n01930112 nematode, nematode worm, roundworm
+n01943899 conch
+n01944390 snail
+n01945685 slug
+n01950731 sea slug, nudibranch
+n01955084 chiton, coat-of-mail shell, sea cradle, polyplacophore
+n01968897 chambered nautilus, pearly nautilus, nautilus
+n01978287 Dungeness crab, Cancer magister
+n01978455 rock crab, Cancer irroratus
+n01980166 fiddler crab
+n01981276 king crab, Alaska crab, Alaskan king crab, Alaska king crab, Paralithodes camtschatica
+n01983481 American lobster, Northern lobster, Maine lobster, Homarus americanus
+n01984695 spiny lobster, langouste, rock lobster, crawfish, crayfish, sea crawfish
+n01985128 crayfish, crawfish, crawdad, crawdaddy
+n01986214 hermit crab
+n01990800 isopod
+n02002556 white stork, Ciconia ciconia
+n02002724 black stork, Ciconia nigra
+n02006656 spoonbill
+n02007558 flamingo
+n02009229 little blue heron, Egretta caerulea
+n02009912 American egret, great white heron, Egretta albus
+n02011460 bittern
+n02012849 crane
+n02013706 limpkin, Aramus pictus
+n02017213 European gallinule, Porphyrio porphyrio
+n02018207 American coot, marsh hen, mud hen, water hen, Fulica americana
+n02018795 bustard
+n02025239 ruddy turnstone, Arenaria interpres
+n02027492 red-backed sandpiper, dunlin, Erolia alpina
+n02028035 redshank, Tringa totanus
+n02033041 dowitcher
+n02037110 oystercatcher, oyster catcher
+n02051845 pelican
+n02056570 king penguin, Aptenodytes patagonica
+n02058221 albatross, mollymawk
+n02066245 grey whale, gray whale, devilfish, Eschrichtius gibbosus, Eschrichtius robustus
+n02071294 killer whale, killer, orca, grampus, sea wolf, Orcinus orca
+n02074367 dugong, Dugong dugon
+n02077923 sea lion
+n02085620 Chihuahua
+n02085782 Japanese spaniel
+n02085936 Maltese dog, Maltese terrier, Maltese
+n02086079 Pekinese, Pekingese, Peke
+n02086240 Shih-Tzu
+n02086646 Blenheim spaniel
+n02086910 papillon
+n02087046 toy terrier
+n02087394 Rhodesian ridgeback
+n02088094 Afghan hound, Afghan
+n02088238 basset, basset hound
+n02088364 beagle
+n02088466 bloodhound, sleuthhound
+n02088632 bluetick
+n02089078 black-and-tan coonhound
+n02089867 Walker hound, Walker foxhound
+n02089973 English foxhound
+n02090379 redbone
+n02090622 borzoi, Russian wolfhound
+n02090721 Irish wolfhound
+n02091032 Italian greyhound
+n02091134 whippet
+n02091244 Ibizan hound, Ibizan Podenco
+n02091467 Norwegian elkhound, elkhound
+n02091635 otterhound, otter hound
+n02091831 Saluki, gazelle hound
+n02092002 Scottish deerhound, deerhound
+n02092339 Weimaraner
+n02093256 Staffordshire bullterrier, Staffordshire bull terrier
+n02093428 American Staffordshire terrier, Staffordshire terrier, American pit bull terrier, pit bull terrier
+n02093647 Bedlington terrier
+n02093754 Border terrier
+n02093859 Kerry blue terrier
+n02093991 Irish terrier
+n02094114 Norfolk terrier
+n02094258 Norwich terrier
+n02094433 Yorkshire terrier
+n02095314 wire-haired fox terrier
+n02095570 Lakeland terrier
+n02095889 Sealyham terrier, Sealyham
+n02096051 Airedale, Airedale terrier
+n02096177 cairn, cairn terrier
+n02096294 Australian terrier
+n02096437 Dandie Dinmont, Dandie Dinmont terrier
+n02096585 Boston bull, Boston terrier
+n02097047 miniature schnauzer
+n02097130 giant schnauzer
+n02097209 standard schnauzer
+n02097298 Scotch terrier, Scottish terrier, Scottie
+n02097474 Tibetan terrier, chrysanthemum dog
+n02097658 silky terrier, Sydney silky
+n02098105 soft-coated wheaten terrier
+n02098286 West Highland white terrier
+n02098413 Lhasa, Lhasa apso
+n02099267 flat-coated retriever
+n02099429 curly-coated retriever
+n02099601 golden retriever
+n02099712 Labrador retriever
+n02099849 Chesapeake Bay retriever
+n02100236 German short-haired pointer
+n02100583 vizsla, Hungarian pointer
+n02100735 English setter
+n02100877 Irish setter, red setter
+n02101006 Gordon setter
+n02101388 Brittany spaniel
+n02101556 clumber, clumber spaniel
+n02102040 English springer, English springer spaniel
+n02102177 Welsh springer spaniel
+n02102318 cocker spaniel, English cocker spaniel, cocker
+n02102480 Sussex spaniel
+n02102973 Irish water spaniel
+n02104029 kuvasz
+n02104365 schipperke
+n02105056 groenendael
+n02105162 malinois
+n02105251 briard
+n02105412 kelpie
+n02105505 komondor
+n02105641 Old English sheepdog, bobtail
+n02105855 Shetland sheepdog, Shetland sheep dog, Shetland
+n02106030 collie
+n02106166 Border collie
+n02106382 Bouvier des Flandres, Bouviers des Flandres
+n02106550 Rottweiler
+n02106662 German shepherd, German shepherd dog, German police dog, alsatian
+n02107142 Doberman, Doberman pinscher
+n02107312 miniature pinscher
+n02107574 Greater Swiss Mountain dog
+n02107683 Bernese mountain dog
+n02107908 Appenzeller
+n02108000 EntleBucher
+n02108089 boxer
+n02108422 bull mastiff
+n02108551 Tibetan mastiff
+n02108915 French bulldog
+n02109047 Great Dane
+n02109525 Saint Bernard, St Bernard
+n02109961 Eskimo dog, husky
+n02110063 malamute, malemute, Alaskan malamute
+n02110185 Siberian husky
+n02110341 dalmatian, coach dog, carriage dog
+n02110627 affenpinscher, monkey pinscher, monkey dog
+n02110806 basenji
+n02110958 pug, pug-dog
+n02111129 Leonberg
+n02111277 Newfoundland, Newfoundland dog
+n02111500 Great Pyrenees
+n02111889 Samoyed, Samoyede
+n02112018 Pomeranian
+n02112137 chow, chow chow
+n02112350 keeshond
+n02112706 Brabancon griffon
+n02113023 Pembroke, Pembroke Welsh corgi
+n02113186 Cardigan, Cardigan Welsh corgi
+n02113624 toy poodle
+n02113712 miniature poodle
+n02113799 standard poodle
+n02113978 Mexican hairless
+n02114367 timber wolf, grey wolf, gray wolf, Canis lupus
+n02114548 white wolf, Arctic wolf, Canis lupus tundrarum
+n02114712 red wolf, maned wolf, Canis rufus, Canis niger
+n02114855 coyote, prairie wolf, brush wolf, Canis latrans
+n02115641 dingo, warrigal, warragal, Canis dingo
+n02115913 dhole, Cuon alpinus
+n02116738 African hunting dog, hyena dog, Cape hunting dog, Lycaon pictus
+n02117135 hyena, hyaena
+n02119022 red fox, Vulpes vulpes
+n02119789 kit fox, Vulpes macrotis
+n02120079 Arctic fox, white fox, Alopex lagopus
+n02120505 grey fox, gray fox, Urocyon cinereoargenteus
+n02123045 tabby, tabby cat
+n02123159 tiger cat
+n02123394 Persian cat
+n02123597 Siamese cat, Siamese
+n02124075 Egyptian cat
+n02125311 cougar, puma, catamount, mountain lion, painter, panther, Felis concolor
+n02127052 lynx, catamount
+n02128385 leopard, Panthera pardus
+n02128757 snow leopard, ounce, Panthera uncia
+n02128925 jaguar, panther, Panthera onca, Felis onca
+n02129165 lion, king of beasts, Panthera leo
+n02129604 tiger, Panthera tigris
+n02130308 cheetah, chetah, Acinonyx jubatus
+n02132136 brown bear, bruin, Ursus arctos
+n02133161 American black bear, black bear, Ursus americanus, Euarctos americanus
+n02134084 ice bear, polar bear, Ursus Maritimus, Thalarctos maritimus
+n02134418 sloth bear, Melursus ursinus, Ursus ursinus
+n02137549 mongoose
+n02138441 meerkat, mierkat
+n02165105 tiger beetle
+n02165456 ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle
+n02167151 ground beetle, carabid beetle
+n02168699 long-horned beetle, longicorn, longicorn beetle
+n02169497 leaf beetle, chrysomelid
+n02172182 dung beetle
+n02174001 rhinoceros beetle
+n02177972 weevil
+n02190166 fly
+n02206856 bee
+n02219486 ant, emmet, pismire
+n02226429 grasshopper, hopper
+n02229544 cricket
+n02231487 walking stick, walkingstick, stick insect
+n02233338 cockroach, roach
+n02236044 mantis, mantid
+n02256656 cicada, cicala
+n02259212 leafhopper
+n02264363 lacewing, lacewing fly
+n02268443 dragonfly, darning needle, devil's darning needle, sewing needle, snake feeder, snake doctor, mosquito hawk, skeeter hawk
+n02268853 damselfly
+n02276258 admiral
+n02277742 ringlet, ringlet butterfly
+n02279972 monarch, monarch butterfly, milkweed butterfly, Danaus plexippus
+n02280649 cabbage butterfly
+n02281406 sulphur butterfly, sulfur butterfly
+n02281787 lycaenid, lycaenid butterfly
+n02317335 starfish, sea star
+n02319095 sea urchin
+n02321529 sea cucumber, holothurian
+n02325366 wood rabbit, cottontail, cottontail rabbit
+n02326432 hare
+n02328150 Angora, Angora rabbit
+n02342885 hamster
+n02346627 porcupine, hedgehog
+n02356798 fox squirrel, eastern fox squirrel, Sciurus niger
+n02361337 marmot
+n02363005 beaver
+n02364673 guinea pig, Cavia cobaya
+n02389026 sorrel
+n02391049 zebra
+n02395406 hog, pig, grunter, squealer, Sus scrofa
+n02396427 wild boar, boar, Sus scrofa
+n02397096 warthog
+n02398521 hippopotamus, hippo, river horse, Hippopotamus amphibius
+n02403003 ox
+n02408429 water buffalo, water ox, Asiatic buffalo, Bubalus bubalis
+n02410509 bison
+n02412080 ram, tup
+n02415577 bighorn, bighorn sheep, cimarron, Rocky Mountain bighorn, Rocky Mountain sheep, Ovis canadensis
+n02417914 ibex, Capra ibex
+n02422106 hartebeest
+n02422699 impala, Aepyceros melampus
+n02423022 gazelle
+n02437312 Arabian camel, dromedary, Camelus dromedarius
+n02437616 llama
+n02441942 weasel
+n02442845 mink
+n02443114 polecat, fitch, foulmart, foumart, Mustela putorius
+n02443484 black-footed ferret, ferret, Mustela nigripes
+n02444819 otter
+n02445715 skunk, polecat, wood pussy
+n02447366 badger
+n02454379 armadillo
+n02457408 three-toed sloth, ai, Bradypus tridactylus
+n02480495 orangutan, orang, orangutang, Pongo pygmaeus
+n02480855 gorilla, Gorilla gorilla
+n02481823 chimpanzee, chimp, Pan troglodytes
+n02483362 gibbon, Hylobates lar
+n02483708 siamang, Hylobates syndactylus, Symphalangus syndactylus
+n02484975 guenon, guenon monkey
+n02486261 patas, hussar monkey, Erythrocebus patas
+n02486410 baboon
+n02487347 macaque
+n02488291 langur
+n02488702 colobus, colobus monkey
+n02489166 proboscis monkey, Nasalis larvatus
+n02490219 marmoset
+n02492035 capuchin, ringtail, Cebus capucinus
+n02492660 howler monkey, howler
+n02493509 titi, titi monkey
+n02493793 spider monkey, Ateles geoffroyi
+n02494079 squirrel monkey, Saimiri sciureus
+n02497673 Madagascar cat, ring-tailed lemur, Lemur catta
+n02500267 indri, indris, Indri indri, Indri brevicaudatus
+n02504013 Indian elephant, Elephas maximus
+n02504458 African elephant, Loxodonta africana
+n02509815 lesser panda, red panda, panda, bear cat, cat bear, Ailurus fulgens
+n02510455 giant panda, panda, panda bear, coon bear, Ailuropoda melanoleuca
+n02514041 barracouta, snoek
+n02526121 eel
+n02536864 coho, cohoe, coho salmon, blue jack, silver salmon, Oncorhynchus kisutch
+n02606052 rock beauty, Holocanthus tricolor
+n02607072 anemone fish
+n02640242 sturgeon
+n02641379 gar, garfish, garpike, billfish, Lepisosteus osseus
+n02643566 lionfish
+n02655020 puffer, pufferfish, blowfish, globefish
