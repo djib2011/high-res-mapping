@@ -17,18 +17,18 @@ Activation Maps, without impacting the CNN’s performance.
 #### 1.1.a. *Animals* dataset
 Due to the large size of the dataset, we didn't upload it to the repo, however you can create it by following these instructions:
 - Download the [ILSVRC 2012 dataset](http://image-net.org/challenges/LSVRC/2012/). 
-- Keep only the subset of classes concerning animals. These should be $398$ classes which you can find in the 
+- Keep only the subset of classes concerning animals. These should be 398 classes which you can find in the 
 [animal_synsets.txt](https://github.com/djib2011/high-res-mapping/blob/master/animal_synsets.txt) file.
-- The images should amount to a total of $510530$ images.
+- The images should amount to a total of 510530 images.
 #### 1.1.b. custom dataset
 You can use your own dataset, just keep in mind that you need have *enough* in order tor the model to be trained.  
 How much is *enough*? I'd say somewhere in the tens of thousands, but I can't be sure.
 
 #### 1.2. Pre-processing
 During this step the images should be:
-- Resized to the same resolution (we used $224 \times 224$).
-- Normalized to $[0, 1]$.
-- Split into a training and a test set. We used $396416$ images for training and $114114$ for test). 
+- Resized to the same resolution (we used 224 × 224).
+- Normalized to [0, 1].
+- Split into a training and a test set. We used 396416 images for training and 114114 for test). 
 
 #### 1.3. Structuring the data
 In order to work as intended you should have two main directories for the training and test images respectively. 
@@ -70,8 +70,8 @@ This scheme is selected so that the data can be read by keras' [ImageDataGenerat
 
 ### 2. Classification model pre-training
 
-In this step we'll train the classification model (which produces the low-res CAMs). The script you'll need to run is 
-[`pretrain_densenet_fcn.py`](https://github.com/djib2011/high-res-mapping/blob/master/pretrain_densenet_fcn.py).
+In this step we'll train the classification model (which produces the low-res CAMs). This is referred to as the *half model*.
+The script you'll need to run is [`pretrain_densenet_fcn.py`](https://github.com/djib2011/high-res-mapping/blob/master/pretrain_densenet_fcn.py).
 
 The default parameters are:
 ```python
@@ -88,8 +88,19 @@ Two parameters that will need to be specified are:
 
 ```python
 data_dir         # location where we can find the data_dir (see 1.3. for what the data_dir should look like)
+results_name     # name of the directory that will store the results. can include subdirs (which will be created if they don't exist)
 half_weight_dir  # if we want to continue the training of the model, specify the location of the weights
 ```
+
+For example:
+```
+python pretrain_densenet_fcn.py --data_dir /path/to/data_dir --results_name experiment1/run3 --batch_size 32 --epochs 100
+```
+This would start training the DenseNet with a batch size of 32, for 100 epochs. The training images should be under `/path/to/data_dir/train/`, the weights will be stored under `results/experiment1/run3/` and the logs under `logs/experiment1/run3`
+
+### 3. FCN model training
+
+Now, it's time to train the FCN model which is capable of classification, low and high-res mapping. This is referred to as the *full model*.
 
 ## Requirements:
 
