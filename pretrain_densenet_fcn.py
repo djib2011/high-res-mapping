@@ -17,11 +17,16 @@ img_dims = (opt.im_size, opt.im_size)
 input_shape = img_dims + (opt.channels,)
 data_dir = opt.data_dir
 half_weight_dir = opt.half_weight_dir
+results_name = opt.target_name
 os.environ['CUDA_VISIBLE_DEVICES'] = opt.gpu
 
-# Define useful paths
-results_name = 'half_densenet_fcn/animals/run3'
+# Check if user gave mandatory opts
+if not data_dir:
+    raise ValueError('You must specify a data directory. Add "--data_dir /path/to/data_dir"')
+if not results_name:
+    raise ValueError('You must specify a name for the results directory. Add "--results_name name"')
 
+# Define useful paths
 train_path = os.path.join(data_dir, 'train')
 test_path = os.path.join(data_dir, 'test')
 
