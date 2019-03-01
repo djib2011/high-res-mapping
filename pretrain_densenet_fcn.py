@@ -16,6 +16,7 @@ epochs = opt.epochs
 img_dims = (opt.im_size, opt.im_size)
 input_shape = img_dims + (opt.channels,)
 data_dir = opt.data_dir
+half_weight_dir = opt.half_weight_dir
 os.environ['CUDA_VISIBLE_DEVICES'] = opt.gpu
 
 # Define useful paths
@@ -50,8 +51,9 @@ test_gen = vg.flow_from_directory(test_path, target_size=img_dims, batch_size=ba
 model = custom_models.HalfDenseNetFCN(input_shape, num_classes)
 
 # Load previously trained model
-previous_weights = 'results/half_densenet_fcn/animals/run2/best_weights.h5'
-model.load_weights(previous_weights)
+if half_weight_dir:
+    previous_weights = half_weight_dir
+    model.load_weights(previous_weights)
 
 # Define keras callbacks
 lr_reducer = ReduceLROnPlateau(monitor='loss', factor=np.sqrt(0.1), patience=10, cooldown=0, min_lr=1e-5, verbose=1)
