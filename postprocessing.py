@@ -48,7 +48,7 @@ def pipeline(img, low, high, roi_percentile=85, focal_scope='global', maxima_are
              - 'blurred': The blurred high-res CAM.
              - 'low': The original low-res CAM.
              - 'low_resized': The resized low-res CAM (through bilinear interpolation).
-             - 'edges': grad: The result of the sobel filter on the blurred high-res map.
+             - 'edges': The result of the sobel filter on the blurred high-res map.
              - 'roi': The Region Of Interest extracted from the low-res map.
              - 'bounds': The lower and upper bounds for the region-growing segmentation.
              - 'focal_points': The focal_points extracted from the low-res map.
