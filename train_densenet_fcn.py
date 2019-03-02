@@ -16,12 +16,16 @@ image_dims = (opt.im_size, opt.im_size)
 input_shape = image_dims + (opt.channels,)
 weight_dir = opt.half_weight_dir
 data_dir = opt.data_dir
+results_name = opt.results_name
 os.environ['CUDA_VISIBLE_DEVICES'] = opt.gpu
 
+# Check if user gave mandatory opts
+if not results_name:
+    raise ValueError('You must specify a name for the results directory. Add "--results_name name"')
+
 # Where to store results
-results_name = 'densenet_fcn/animals/frozen_corrected_utils_3'
-log_dir = 'logs/densenet_fcn/animals/frozen_corrected_utils_3'
 results_dir = os.path.join(os.getcwd(), 'results', results_name)
+log_dir = os.path.join(os.getcwd(), 'logs', results_name)
 
 if not os.path.exists(results_dir):
     os.makedirs(results_dir)
