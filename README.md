@@ -105,7 +105,7 @@ This would start training the DenseNet with a batch size of 32, for 100 epochs. 
 If you want to evaluate the performance of the *half* model, you'll need to run [`https://github.com/djib2011/high-res-mapping/blob/master/classification_eval.py`](https://github.com/djib2011/high-res-mapping/blob/master/classification_eval.py).
 
 Two parameters need to be specifeid:
-```
+```python
 data_dir         # location where we can find the data_dir (see 1.3. for what the data_dir should look like)
 half_weight_dir  # the path to the weights we want to use
 type             # the type of the model: half/full. In this case it needs to be set to half
@@ -120,7 +120,7 @@ The script will print the accuracy of the model as well as the macro and micro a
 
 Note: the evaluation will be performed on the test set images.  
 
-#### 2.c Interpreting results
+#### 2.c. Interpreting results
 
 As mentioned previously, the *half* model is simply a classification model that can produce low-res CAMs. The scores will show how potent it is for classification. If the results are not satisfactory, this means that either that the problem is very difficult (e.g. very few images, images are hard to classify) or that the model hasn't been trained properly (e.g. few epochs, wrong weights).
 
@@ -151,7 +151,8 @@ This will train the *full* model with images from `/path/to/data_dir/train/` and
 If you want to evaluate the performance of the *full* model for the classification task, you'll need to run [`https://github.com/djib2011/high-res-mapping/blob/master/classification_eval.py`](https://github.com/djib2011/high-res-mapping/blob/master/classification_eval.py).
 
 Again, two parameters need to be specifeid:
-```
+
+```python
 data_dir         # location where we can find the data_dir (see 1.3. for what the data_dir should look like)
 weight_dir       # the path to the weights we want to use
 type             # the type of the model: half/full. In this case it needs to be set to full
@@ -166,7 +167,7 @@ The script will print the accuracy of the model as well as the macro and micro a
 
 Note: the evaluation will be performed on the test set images.  
 
-#### 3.c Interpreting results
+#### 3.c. Interpreting results
 
 The scores here should be identical to the ones achieved during step 2.b. If not, this means that the *full* model's weights were not properly initialized from the pre-trained *half* model's weights. If this is the case, steps 3.a and 3.b. should be repeated. Be careful on entering the proper weights after the `half_weight_dir` parameter.
 
