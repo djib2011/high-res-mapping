@@ -116,7 +116,7 @@ class FullModel:
 
 class HalfModel:
 
-    def __init__(self, weights, num_classes=opt.num_classes, im_size=opt.im_size, channels=opt.channels):
+    def __init__(self, weights=opt.half_weight_dir, num_classes=opt.num_classes, im_size=opt.im_size, channels=opt.channels):
         """
         Wrapper for easier predictions and debugging of a HalfDenseNetFCN model.
         :param weights: Path to a file containing the weights of a pre-trained HalfDenseNetFCN.
