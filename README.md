@@ -126,6 +126,32 @@ As mentioned previously, the *half* model is simply a classification model that 
 
 If this is the case, there is a good chance that neither the CAMs will be able to pick up on any meaningful features.
 
+#### 2.d. Using the *half* model
+
+How can I use the trained *half* model? 
+
+First, you have to import its wrapper class (which makes it easier to use) and then instantiate it. You'll need to pass the location of the weights file during instantiation.
+
+```python
+from cams import HalfModel
+
+hm = HalfModel(weights='path/to/half_weights_dir/best_weights.h5')
+```
+
+What can I do with the `HalfModel`?
+
+You can do two main things: make a prediction and draw a low-res CAM. Given an input image `x` with a shape of `(1, height, width, channels)`:
+
+```python
+# Precictions. Will return the class' index:
+pred = hm.predict(x)                     # make a prediction for image x
+preds = hm.predictN(x, n=3)              # make the top-3 predictions for image x
+
+# Low-res CAMs. Shape will be (height/14, width/14):
+prediction_cam = hm.cam(x)               # generate the low-res CAM for the predicted class 
+custom_cam = hm.cam(x, custom_class=13)  # generate the low-res CAM for class 13
+```
+
 ### 3. FCN model training
 
 Now, it's time to train the FCN model which is capable of classification, low and high-res mapping. This is referred to as the *full model*.
@@ -171,8 +197,36 @@ Note: the evaluation will be performed on the test set images.
 
 The scores here should be identical to the ones achieved during step 2.b. If not, this means that the *full* model's weights were not properly initialized from the pre-trained *half* model's weights. If this is the case, steps 3.a and 3.b. should be repeated. Be careful on entering the proper weights after the `half_weight_dir` parameter.
 
-### 4. Post-processing
+#### 3.d. Using the *full* model
 
+How can I use the trained *full* model? 
+
+Again, you have to import the wrapper class and instantiate it. The location of the weights file needs to be passed as a parameter.
+
+```python
+from cams import FullModel
+
+fm = FullModel(weights='path/to/weights_dir/best_weights.h5')
+```
+
+What can I do with the `FullModel`?
+
+You can do three main things: make predictions and draw both low and high-res CAMs. Given an input image `x` with a shape of `(1, height, width, channels)`:
+
+```python
+# Predictions. Will return the class' index:
+pred = fm.predict(x)
+
+# Generate low-res CAMs. The shape of the low-res CAMs will be (height/14, width/14):
+low_cam = fm.low_res_cam(x)                     # low-res CAM for predicted class 
+low_cam = fm.low_res_cam(x, custom_class=13)    # low-res CAM for class 13
+
+# Generate high-res CAMs. The shape of the high-res CAMs will be (height, width):
+high_cam = fm.high_res_cam(x)                   # high-res CAM for predicted class
+high_cam = fm.high_res_cam(x, custom_class=13)  # high-res CAM for class 13
+```
+
+### 4. Post-processing
 
 
 ## Requirements:
