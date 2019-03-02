@@ -7,7 +7,7 @@ import os
 
 # For manually overwriting opt:
 model_type = opt.type
-data_dir = opt.data
+data_dir = opt.data_dir
 weights = None
 
 test_dir = os.path.join(data_dir, 'test')
