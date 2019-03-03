@@ -79,22 +79,23 @@ def read_image(ind=None, return_class_name=False):
 
 
 # Test directory
-if not opt.test_dir:
-    data_dir = opt.data_dir
-    opt.test_dir = str(Path(data_dir) / 'test')
+if not opt.data_dir:
+    raise ValueError('You need to specify a data_dir.')
+    
+test_dir = str(Path(opt.data_dir) / 'test')
 
 # Input dimensions
 image_dims = (opt.im_size, opt.im_size)
 input_shape = image_dims + (opt.channels,)
 
 # Locate test images
-test_images = list(Path(opt.test_dir).rglob('*.JPEG'))
+test_images = list(Path(test_dir).rglob('*.JPEG'))
 
 # Select random image
 rand_img_ind = np.random.randint(0, len(test_images))
 
 # Create generator
-gen = ImageDataGenerator().flow_from_directory(opt.test_dir)
+gen = ImageDataGenerator().flow_from_directory(test_dir)
 
 # Class index-to-name mapper
 synset_file_path = 'synset_words.txt'
@@ -103,4 +104,3 @@ mapper = AnimalsMapper(synset_path=synset_file_path, gen=gen)
 # Create variable
 num_images = gen.n
 num_classes = gen.num_classes
-
