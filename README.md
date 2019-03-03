@@ -12,6 +12,8 @@ Activation Maps, without impacting the CNN’s performance.
 
 ## Quick start:
 
+## Guide:
+
 ### 1. Data
 #### 1.1. Data aquisition
 #### 1.1.a. *Animals* dataset
@@ -70,7 +72,7 @@ This scheme is selected so that the data can be read by keras' [ImageDataGenerat
 
 ### 2. Classification model pre-training
 
-#### 2.a. Training 
+#### 2.1. Training 
 
 In this step we'll train the classification model (which produces the low-res CAMs). This is referred to as the *half model*.
 The script you'll need to run is [`pretrain_densenet_fcn.py`](https://github.com/djib2011/high-res-mapping/blob/master/pretrain_densenet_fcn.py).
@@ -100,7 +102,7 @@ python pretrain_densenet_fcn.py --data_dir /path/to/data_dir --results_name half
 ```
 This would start training the DenseNet with a batch size of 32, for 100 epochs. The training images should be under `/path/to/data_dir/train/`, the weights will be stored under `results/half/experiment1/run3/` and the logs under `logs/half/experiment1/run3`.
 
-#### 2.b. Evaluation 
+#### 2.2. Evaluation 
 
 If you want to evaluate the performance of the *half* model, you'll need to run [`https://github.com/djib2011/high-res-mapping/blob/master/classification_eval.py`](https://github.com/djib2011/high-res-mapping/blob/master/classification_eval.py).
 
@@ -120,13 +122,13 @@ The script will print the accuracy of the model as well as the macro and micro a
 
 Note: the evaluation will be performed on the test set images.  
 
-#### 2.c. Interpreting results
+#### 2.3. Interpreting results
 
 As mentioned previously, the *half* model is simply a classification model that can produce low-res CAMs. The scores will show how potent it is for classification. If the results are not satisfactory, this means that either that the problem is very difficult (e.g. very few images, images are hard to classify) or that the model hasn't been trained properly (e.g. few epochs, wrong weights).
 
 If this is the case, there is a good chance that neither the CAMs will be able to pick up on any meaningful features.
 
-#### 2.d. Using the *half* model
+#### 2.4. Using the *half* model
 
 How can I use the trained *half* model? 
 
@@ -154,6 +156,8 @@ custom_cam = hm.cam(x, custom_class=13)  # generate the low-res CAM for class 13
 
 ### 3. FCN model training
 
+#### 3.1. Training 
+
 Now, it's time to train the FCN model which is capable of classification, low and high-res mapping. This is referred to as the *full model*.
 
 The main script you'll need to run is [`train_densenet_fcn.py`](https://github.com/djib2011/high-res-mapping/blob/master/train_densenet_fcn.py). Most options are the same, with the exception of:
@@ -171,8 +175,7 @@ python train_densenet_fcn.py --data_dir /path/to/data_dir --results_name full/ex
 
 This will train the *full* model with images from `/path/to/data_dir/train/` and weights initialized from `results/half/experiment1/run3/best_weights.h5`. After training the *full* model with the above options, the weights will be stored under `resutls/full/experiment1/run3`, while the logs will be stored in `logs/full/experiment1/run3`.
 
-
-#### 3.b. Evaluation 
+#### 3.2. Evaluation 
 
 If you want to evaluate the performance of the *full* model for the classification task, you'll need to run [`https://github.com/djib2011/high-res-mapping/blob/master/classification_eval.py`](https://github.com/djib2011/high-res-mapping/blob/master/classification_eval.py).
 
@@ -193,11 +196,13 @@ The script will print the accuracy of the model as well as the macro and micro a
 
 Note: the evaluation will be performed on the test set images.  
 
-#### 3.c. Interpreting results
+#### 3.3. Interpreting results
 
-The scores here should be identical to the ones achieved during step 2.b. If not, this means that the *full* model's weights were not properly initialized from the pre-trained *half* model's weights. If this is the case, steps 3.a and 3.b. should be repeated. Be careful on entering the proper weights after the `half_weight_dir` parameter.
+The scores here should be identical to the ones achieved during step 2.2. If not, this means that the *full* model's weights were not properly initialized from the pre-trained *half* model's weights. 
 
-#### 3.d. Using the *full* model
+If this is the case, steps 3.1 and 3.2. should be repeated. Be careful on entering the proper weights after the `half_weight_dir` parameter. You can debug this through `utils.train.check_weights()` (see 5.2.).
+
+#### 3.4. Using the *full* model
 
 How can I use the trained *full* model? 
 
@@ -228,7 +233,7 @@ high_cam = fm.high_res_cam(x, custom_class=13)  # high-res CAM for class 13
 
 ### 4. Post-processing
 
-#### 4.a. Option 1: Pipeline outputs
+#### 4.1. Option 1: Pipeline outputs
 
 In order to apply the proposed post-processing pipeline that combines both high and low-res CAMs in order to produce the *refined* CAMs, you have to use the [`postprocessing.py`](https://github.com/djib2011/high-res-mapping/blob/master/postprocessing.py) script. This will return in detail the outputs of each of the steps in the postprocessing pipeline.
 
@@ -278,7 +283,7 @@ filter_threshold=0.6       # a float in [0, 1] over which the intensities of the
                            # Only relevant when filter_type='threshold'
 ```
 
-#### 4.b. Option 2: Visualization
+#### 4.2. Option 2: Visualization
 
 You can visualize the whole pipeline procedure through [`utils.plotting.py`](https://github.com/djib2011/high-res-mapping/blob/master/utils/plotting.py).
 
@@ -294,7 +299,78 @@ pipeline(x, low_res_cam, high_res_cam)
 
 This will create a figure visualizing how both maps are combined, step-by-step, to create the *refined* CAM.
 
-Parameters are the same as in 4.a. 
+Parameters are the same as in 4.1. 
+
+### 5. Useful utils
+
+#### 5.1. Input
+
+Useful utils for data input. You need to first specify a `data_dir`:
+
+```python
+from io_utils import *
+
+# Info: 
+test_images  # a list of the paths for the images in the test_dir
+num_images   # number of images in the test_dir
+num_classes  # number of classes
+
+# Reading images:
+x, y = read_image()      # loads a random image from the test set, along with its label's index
+x, y = read_image(13)     # loads image with index 13 from the test set, along with its label's index
+x, y = read_image(13, return_class_name=True)  # same as before,
+                                               # returns the label's name (only works for animals dataset)
+
+# AnimalsMapper class (it is already instantiated):
+mapper.name(5)            # will return the name for the class with an index of 5 
+mapper.index('stingray')  # will return the index for the class with a name of 'stingray'
+```
+
+If you haven't set a default `data_dir` from `utils.opts`.
+
+```python
+# First define useful paths:
+from utils.opts import opt
+from pathlib import Path
+
+opt.data_dir = '/path/to/data_dir'
+test_dir = str(Path(opt.data_dir) / 'test')
+
+# Then instantiate the AnimalsMapper class:
+from utils.io_utils import AnimalsMapper
+
+synset_path = '/path/to/synset_words.txt'
+mapper = AnimalsMapper(synset_path, test_dir=test_dir)
+
+# Finally import read_image:
+from utils.io_utils import read_image
+```
+
+#### 5.2. Debug tools
+
+#### 5.2.a. Find the memory usage of a model
+
+Given a keras `model` and the `batch_size` we want to use: 
+
+```python
+from utils.debug import get_model_memory_usage
+
+print(get_model_memory_usage(model, batch_size))
+```
+
+Will return the required memory to train the `model` with the given `batch_size` in GB.
+
+#### 5.2.b. Compere the weights of two models
+
+Given two keras models `model1` and `model2`:
+
+```python
+from utils.debug import check_weights
+
+check_weights(model1, model2)
+```
+
+Will compare the weights between `model1` and `model2` to see up to which point they are equal. Useful for checking if the *half* model's weights were properly transfered to the *full* model.
 
 ## Requirements:
 
