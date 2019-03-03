@@ -16,7 +16,8 @@ First add the your default parameters to [`utils.opts`](https://github.com/djib2
 
 ```python
 from utils.io_utils import *
-from utils.plotting import pipeline
+from utils import plotting
+import postprocessing
 from cams import FullModel
 
 # The read_image can load images along with their labels
@@ -26,9 +27,27 @@ x, y = read_image()  # read a random image
 fm = FullModel()
 high, low, preds = fm.generate_cams(x)  # generate the cams and preds for x
 
+# Apply the postprocessing pipeline to generate a refined CAM
+steps = postprocessing.pipeline(x, low, high)
+steps['merged']  # the refined CAM
+
 # Draw the whole pipeline
-pipeline(x, low, high)
+plotting.pipeline(x, low, high)
 ```
+
+## Requirements:
+
+- python 3
+- numpy
+- scipy
+- skimage (required for postprocessing filters)
+- tensorflow (if you want to train a model, tensorflow-gpu is recommended)
+- keras (all models are keras instances)
+- imgaug (used for data augmentation)
+- tqdm (only required for `classification_eval`)
+- SimpleITK (required for `ConnectedThreshold` segmentation)
+- matplotlib (only required for plotting the postprocessing pipeline)
+- seaborn (same as matplotlib)
 
 ## Guide:
 
@@ -393,9 +412,5 @@ check_weights(model1, model2)
 ```
 
 Will compare the weights between `model1` and `model2` to see up to which point they are equal. Useful for checking if the *half* model's weights were properly transfered to the *full* model.
-
-## Requirements:
-
-
 
 ## Detailed description of experiments:
