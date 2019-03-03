@@ -12,7 +12,29 @@ Activation Maps, without impacting the CNN’s performance.
 
 ## Quick start:
 
+First add the your default parameters to [`utils.opts`](https://github.com/djib2011/high-res-mapping/blob/master/utils/opts.py). These include the location of the directory storing your training/test images (`data_dir`), the size of the images (`im_size`), the location of the weights (`weight_dir`), etc.
+
+```python
+from utils.io_utils import *
+from utils.plotting import pipeline
+from cams import FullModel
+
+# The read_image can load images along with their labels
+x, y = read_image()  # read a random image 
+
+# The FullModel can make predictions and generate low and high-res CAMs 
+fm = FullModel()
+high, low, preds = fm.generate_cams(x)  # generate the cams and preds for x
+
+# Draw the whole pipeline
+pipeline(x, low, high)
+```
+
 ## Guide:
+
+#### Tip:
+
+If you want to run a single experiment (use one dataset), go to [`utils.opts`](https://github.com/djib2011/high-res-mapping/blob/master/utils/opts.py) and change the default values to meet your specifications. More importantly change the default value of `data_dir`, so that you don't have to specify it every time.
 
 ### 1. Data
 #### 1.1. Data aquisition
