@@ -228,6 +228,73 @@ high_cam = fm.high_res_cam(x, custom_class=13)  # high-res CAM for class 13
 
 ### 4. Post-processing
 
+#### 4.a. Option 1: Pipeline outputs
+
+In order to apply the proposed post-processing pipeline that combines both high and low-res CAMs in order to produce the *refined* CAMs, you have to use the [`postprocessing.py`](https://github.com/djib2011/high-res-mapping/blob/master/postprocessing.py) script. This will return in detail the outputs of each of the steps in the postprocessing pipeline.
+
+**Usage**:
+
+Assuming an input image `x` with a shape of `(1, height, width, channels)`, a low-res CAM `low_res_cam`and a high-res CAM `high_res_cam`.
+
+```python
+from postprocessing import pipeline
+
+steps = pipeline(x, low_res_cam, high_res_cam)
+
+steps['blurred']       # the blurred high-res CAM
+steps['low']           # the original low-res CAM
+steps['low_resized']   # the resized low-res CAM (through bilinear interpolation)
+steps['edges']         # the result of the sobel filter on the blurred high-res map
+steps['roi']           # the Region Of Interest extracted from the low-res map
+steps['bounds']        # the lower and upper bounds for the region-growing segmentation
+steps['focal_points']  # the focal_points extracted from the low-res map
+steps['segmented']     # the output of the region-growing segmentation
+steps['full_segment']  # the filled segmentation
+steps['merged']        # the merger of the segmentation with the low-res map, i.e. the refined CAM
+steps['result']        # the part of the original image that has been cropped according to the regined CAM
+```
+
+If we just care about the *refined* CAM we can just use `steps['merged']`.
+
+**Postprocessing pipeline parameters**:
+
+```python
+roi_percentile=85          # the percentile above which the ROI will be estimated. roi_percentile=85 means that the 15% highest
+                           # intensity pixels of the low-res map will constitute the ROI (int in (0, 100)).
+focal_scope='global'       # the scope in which the focal points will be identified. 'global' looks for global maxima, 
+                           # while 'local' looks for local maxima. Accepted values: ['global', 'local']
+maxima_areas='small'       # can either be 'large' or 'small', depending on whether or not we want larger or smaller areas.
+                           # Only relevant for 'local' scopes. Accepted values: ['global', 'local']
+merge_type='blend'         # selection on whether to multiply or blend the high with the low-res CAMs after processing. 
+                           # Accepted values: ['blend', 'merge']
+merge_alpha=0.5            # parameter for the blend merge method. Higher values result in more influence from the high-res map.
+                           # Should be a float in [0, 1].
+filter_type='percentage'   # selects how to crop the original image according to the refined CAM. Two options are available:
+                           # - 'percentage', which keeps a percentage of the highest-instensity values of the refined CAM
+                           # - 'threshold', which keeps the intensities above a certain threshold
+filter_percentage=15       # a float representing the percentage of pixels to be kept (should be in [0, 1]).
+                           # Only relevant when filter_type='percentage'
+filter_threshold=0.6       # a float in [0, 1] over which the intensities of the refined CAM will be kept. 
+                           # Only relevant when filter_type='threshold'
+```
+
+#### 4.b. Option 2: Visualization
+
+You can visualize the whole pipeline procedure through [`utils.plotting.py`](https://github.com/djib2011/high-res-mapping/blob/master/utils/plotting.py).
+
+**Usage**:
+
+Assuming an input image `x` with a shape of `(1, height, width, channels)`, a low-res CAM `low_res_cam`and a high-res CAM `high_res_cam`.
+
+```python
+from utils.plotting import pipeline
+
+pipeline(x, low_res_cam, high_res_cam)
+```
+
+This will create a figure visualizing how both maps are combined, step-by-step, to create the *refined* CAM.
+
+Parameters are the same as in 4.a. 
 
 ## Requirements:
 
