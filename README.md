@@ -10,6 +10,8 @@ presents a framework for discriminative localization, which helps shed some ligh
 of Convolutional Neural Networks (CNN). Our framework generates robust, refined and high-quality Class 
 Activation Maps, without impacting the CNN’s performance.
 
+![](https://github.com/djib2011/high-res-mapping/blob/master/sample_images/good.png)
+
 ## Quick start:
 
 First add the your default parameters to [`utils.opts`](https://github.com/djib2011/high-res-mapping/blob/master/utils/opts.py). These include the location of the directory storing your training/test images (`data_dir`), the size of the images (`im_size`), the location of the weights (`weight_dir`), etc.
