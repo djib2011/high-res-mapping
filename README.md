@@ -51,6 +51,34 @@ plotting.pipeline(x, low, high)
 - matplotlib (only required for plotting the postprocessing pipeline)
 - seaborn (same as matplotlib)
 
+## Detailed description:
+
+### a. *HalfModel*
+
+The *HalfModel* is a simple CNN for classification, with a single Fully Connected (FC) layer and a Global Average Pooling (GAP) layer after its final convolutional layer. This architecture was proposed by [Zhou et al.](https://arxiv.org/pdf/1512.04150.pdf).
+
+![](https://github.com/djib2011/high-res-mapping/blob/master/figures/HalfModel.png)
+
+The dimensions shown in the figure represent those of the proposed DenseNet-based *HalfModel*. *M* is the number of classes.
+
+To generate the (resized) low-res CAMs, one must follow the methodology illustrated in the figure below:
+
+![](https://github.com/djib2011/high-res-mapping/blob/master/figures/HalfModel_localization.png)
+
+The image is passed through the network and the activations of the final concolution layer are extracted and resized to the original dimensions. Meanwhile the weight matrix from the final FC layer is sliced in order to keep the weights for the desired class. For example if we want the CAM for class *c*, we'll slice the respective column (see figure below).
+
+![](https://github.com/djib2011/high-res-mapping/blob/master/figures/weight_slicing.png)
+
+The (resized) activations from the final convolution layer along with the slice of the weight matrix are multiplied to produce the low-res CAM. It is called a low-res CAM because before the resize, the CAM has dimensions of *14x14*. 
+
+### b. *FullModel*
+
+The proposed *FullModel* is depicted in the figure below:
+
+![](https://github.com/djib2011/high-res-mapping/blob/master/figures/FullModel.png)
+
+The *FullModel* consists of two parts, the *localization network* (in black and blue) and the *expansion network* (in orange). The first is responsible for making predictions and generating low-res CAMs, while the second produces the high-res CAMs. The procedure for producing the high-res CAMs is similar to the one for their lower resolution couterparts. The only difference is that instead of the output of the final convolution of the *localization network* (which has dimensions of *14x14*), we'll use the output of the convolution of the *expansion network*, which is upscaled to *224x224*.
+
 ## Guide:
 
 #### Tip:
@@ -414,5 +442,3 @@ check_weights(model1, model2)
 ```
 
 Will compare the weights between `model1` and `model2` to see up to which point they are equal. Useful for checking if the *half* model's weights were properly transfered to the *full* model.
-
-## Detailed description of experiments:
