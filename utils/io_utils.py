@@ -98,7 +98,7 @@ rand_img_ind = np.random.randint(0, len(test_images))
 gen = ImageDataGenerator().flow_from_directory(test_dir)
 
 # Class index-to-name mapper
-synset_file_path = 'synset_words.txt'
+synset_file_path = 'animal_synsets.txt'
 mapper = AnimalsMapper(synset_path=synset_file_path, gen=gen)
 
 # Create variable
