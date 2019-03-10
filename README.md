@@ -65,7 +65,7 @@ To generate the (resized) low-res CAMs, one must follow the methodology illustra
 
 ![](https://github.com/djib2011/high-res-mapping/blob/master/figures/HalfModel_localization.png)
 
-The image is passed through the network and the activations of the final concolution layer are extracted and resized to the original dimensions. Meanwhile the weight matrix from the final FC layer is sliced in order to keep the weights for the desired class. For example if we want the CAM for class *c*, we'll slice the respective column (see figure below).
+The image is passed through the network and the activations of the final convolution layer are extracted and resized to the original dimensions. Meanwhile the weight matrix from the final FC layer is sliced in order to keep the weights for the desired class. For example, if we want the CAM for class *c*, we'll slice the respective column (see figure below).
 
 ![](https://github.com/djib2011/high-res-mapping/blob/master/figures/weight_slicing.png)
 
@@ -77,7 +77,7 @@ The proposed *FullModel* is depicted in the figure below:
 
 ![](https://github.com/djib2011/high-res-mapping/blob/master/figures/FullModel.png)
 
-The *FullModel* consists of two parts, the *localization network* (in black and blue) and the *expansion network* (in orange). The first is responsible for making predictions and generating low-res CAMs, while the second produces the high-res CAMs. The procedure for producing the high-res CAMs is similar to the one for their lower resolution couterparts. The only difference is that instead of the output of the final convolution of the *localization network* (which has dimensions of *14x14*), we'll use the output of the convolution of the *expansion network*, which is upscaled to *224x224*.
+The *FullModel* consists of two parts, the *localization network* (in black and blue) and the *expansion network* (in orange). The first is responsible for making predictions and generating low-res CAMs, while the second produces the high-res CAMs. The procedure for producing the high-res CAMs is similar to the one for their lower resolution counterparts. The only difference is that instead of the output of the final convolution of the *localization network* (which has dimensions of *14x14*), we'll use the output of the convolution of the *expansion network*, which is upscaled to *224x224*.
 
 ## Guide:
 
@@ -86,7 +86,7 @@ The *FullModel* consists of two parts, the *localization network* (in black and 
 If you want to run a single experiment (use one dataset), go to [`utils.opts`](https://github.com/djib2011/high-res-mapping/blob/master/utils/opts.py) and change the default values to meet your specifications. More importantly change the default value of `data_dir`, so that you don't have to specify it every time.
 
 ### 1. Data
-#### 1.1. Data aquisition
+#### 1.1. Data acquisition
 #### 1.1.a. *Animals* dataset
 Due to the large size of the dataset, we didn't upload it to the repo, however you can create it by following these instructions:
 - Download the [ILSVRC 2012 dataset](http://image-net.org/challenges/LSVRC/2012/). 
@@ -156,7 +156,7 @@ im_size=224      # desired dimension of the input image
 channels=3       # number of channels (3 for rgb, 1 for grayscale)
 num_classes=398  # number of classes in the dataset
 weight_dir=None  # directory where the weights are stored
-gpu='0'          # which gpu to use (unly relevant for multi-gpu systems)
+gpu='0'          # which gpu to use (only relevant for multi-gpu systems)
 ```
 
 Two parameters that will need to be specified are:
@@ -177,7 +177,7 @@ This would start training the DenseNet with a batch size of 32, for 100 epochs. 
 
 If you want to evaluate the performance of the *half* model, you'll need to run [`https://github.com/djib2011/high-res-mapping/blob/master/classification_eval.py`](https://github.com/djib2011/high-res-mapping/blob/master/classification_eval.py).
 
-Two parameters need to be specifeid:
+Two parameters need to be specified:
 ```python
 data_dir         # location where we can find the data_dir (see 1.3. for what the data_dir should look like)
 half_weight_dir  # the path to the weights we want to use
@@ -244,7 +244,7 @@ For example:
 python train_densenet_fcn.py --data_dir /path/to/data_dir --results_name full/experiment1/run3 --half_weight_dir results/half/experiment1/run3/best_weights.h5 --batch_size 32 --epochs 100
 ```
 
-This will train the *full* model with images from `/path/to/data_dir/train/` and weights initialized from `results/half/experiment1/run3/best_weights.h5`. After training the *full* model with the above options, the weights will be stored under `resutls/full/experiment1/run3`, while the logs will be stored in `logs/full/experiment1/run3`.
+This will train the *full* model with images from `/path/to/data_dir/train/` and weights initialized from `results/half/experiment1/run3/best_weights.h5`. After training the *full* model with the above options, the weights will be stored under `results/full/experiment1/run3`, while the logs will be stored in `logs/full/experiment1/run3`.
 
 #### 3.2. Evaluation 
 
@@ -441,4 +441,4 @@ from utils.debug import check_weights
 check_weights(model1, model2)
 ```
 
-Will compare the weights between `model1` and `model2` to see up to which point they are equal. Useful for checking if the *half* model's weights were properly transfered to the *full* model.
+Will compare the weights between `model1` and `model2` to see up to which point they are equal. Useful for checking if the *half* model's weights were properly transferred to the *full* model.
