@@ -468,8 +468,8 @@ def transfer_weights(pretrained_model, new_model):
     i = 0
     if pretrained_model.input_shape != new_model.input_shape:
         raise ValueError('Models should have matching input shapes.')
-    while pretrained_model.layers[i].output_shape == new_model.layers[i].output_shape \
-            and i < len(pretrained_model.layers):
+    while i < len(pretrained_model.layers) and \
+            pretrained_model.layers[i].output_shape == new_model.layers[i].output_shape:
         new_model.layers[i].set_weights(pretrained_model.layers[i].get_weights())
         i += 1
     # For the rest of the layers (i.e. the auxiliary ones), we need to find them by name.
