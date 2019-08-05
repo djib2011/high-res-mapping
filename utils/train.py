@@ -475,7 +475,7 @@ def transfer_weights(pretrained_model, new_model):
     # For the rest of the layers (i.e. the auxiliary ones), we need to find them by name.
     for layer in pretrained_model.layers[i:]:
         new_model.get_layer(layer.name).set_weights(layer.get_weights())
-    print('Successfully transferred weights from the first {} layers.'.format(len(pretrained_model.layers)))
+    print('Successfully transferred weights from {} layers.'.format(len(pretrained_model.layers)))
     return True
 
 
