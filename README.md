@@ -10,6 +10,11 @@ presents a framework for discriminative localization, which helps shed some ligh
 of Convolutional Neural Networks (CNN). Our framework generates robust, refined and high-quality Class 
 Activation Maps, without impacting the CNN’s performance.
 
+Presented at [ICIP 2019](http://www.2019.ieeeicip.org/):  
+
+- [full paper](https://ieeexplore.ieee.org/document/8803474)
+- [poster](https://sigport.org/documents/high-resolution-class-activation-mapping)
+
 ![](https://github.com/djib2011/high-res-mapping/blob/master/sample_images/collage.png)
 
 ## Quick start:
