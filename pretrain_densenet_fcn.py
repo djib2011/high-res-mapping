@@ -17,7 +17,7 @@ img_dims = (opt.im_size, opt.im_size)
 input_shape = img_dims + (opt.channels,)
 data_dir = opt.data_dir
 half_weight_dir = opt.half_weight_dir
-results_name = opt.target_name
+results_name = opt.results_name
 os.environ['CUDA_VISIBLE_DEVICES'] = opt.gpu
 
 # Check if user gave mandatory opts
