@@ -7,6 +7,7 @@ import custom_models
 from utils.opts import opt
 from utils.train import CustomImageGenerator, transfer_weights
 import os
+import numpy as np
 
 # For manually overwriting opt
 num_classes = opt.num_classes

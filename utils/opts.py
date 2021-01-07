@@ -18,7 +18,7 @@ parser.add_argument('--num_classes', type=int, default=398, help='number of clas
 parser.add_argument('--gpu', type=str, default='0', help='which gpu to use')
 parser.add_argument('--backend_format', type=str, default='channels_last', help='keras image data format')
 parser.add_argument('--type', type=str, default='full', help='type of the model to evaluate for classification')
-parser.add_argument('--target_name', type=str, default=None, help='name of the directory storing the results')
+parser.add_argument('--results_name', type=str, default=None, help='name of the directory storing the results')
 parser.add_argument('--data_dir', type=str, default=None, help='directory where training data is located')
 parser.add_argument('--weight_dir', type=str, default='results/densenet_fcn/animals/best_weights.h5',
                     help='path to a valid weight file')
